@@ -9,7 +9,7 @@ DEFAULT_DATA = [ # in (username, password, balance) format
 ]
 
 def build_database(database: str=DATABASE_LOCATION,
-                   data: list[tuple[str, str, int]]=DEFAULT_DATA) -> sqlite.Connection:
+                   data: list[tuple[str, str, int]]=DEFAULT_DATA) -> sqlite3.Connection:
     " build the default credential database to hack into and return a connection to it "
     conn = sqlite3.connect(database)
     curs = conn.cursor()
