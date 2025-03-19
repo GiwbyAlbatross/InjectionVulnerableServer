@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
+" flask server. Call main.app.run(threaded=True) to run or execute on the command line. "
 
-import flask
+#import flask
 from flask import Flask, Response, request
 
 app = Flask()
@@ -8,4 +9,4 @@ app = Flask()
 # register routes, etc.
 
 if __name__ == '__main__':
-    app.run(debug=True, threaded=True, debug=__debug__)
+    app.run(threaded=True, debug=__debug__)
