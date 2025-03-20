@@ -1,5 +1,6 @@
 " database stuff for the vulnerable server "
 
+import os
 import sqlite3 # thank the standard library!
 
 DATABASE_LOCATION = "users.db"
@@ -21,6 +22,8 @@ def build_database(database: str=DATABASE_LOCATION,
 
 def authenticate_user(name: str, password: str, conn: sqlite3.Connection) -> bool:
     " really bad authentication which is vulnerable to all kinds of attacks, from SQL injection, to just leaking the database "
+    with open(os.path.join('sql-templates', 'auth.sql')) as f:
+        query = f.read()
     curs = conn.cursor()
-    res = curs.execute("SELECT username FROM users WHERE username='{}' AND password='{}'".format(name, password))
+    res = curs.execute(query.format(name, password))
     return res.fetchone() is not None # if the returned username from the SQL code isn't NULL, basically
