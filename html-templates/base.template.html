@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="/__backend__/style.css"> <!-- our stylesheet -->
   </head>
   <body>
-    <nav>
+    <nav style="display: flex;">
       <!-- implement this later -->
+      <div><a class="w3-button" href="/">Capitalist Bank</a></div>
+      <div><a class="w3-button" href="/login/">Log In</a></div>
     </nav>
-    <div>
-      {content}
-    </div>
+    <main>
+      {content} <!-- use python str.format syntax for templating, not the ninja engine because I can't really be bothered -->
+    </main>
   </body>
 </html>
